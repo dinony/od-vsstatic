@@ -1,6 +1,6 @@
 {
   "name": "od-vsstatic",
-  "description": "od-virtualscroll - static example",
+  "description": "od-virtualscroll: static example",
   "homepage": "https://dinony.github.io/od-vsstatic/",
   "scripts": {
     "build": "ngc -p tsconfig-aot.json && rollup -c rollup.config.js",
