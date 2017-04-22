@@ -66,7 +66,7 @@ import 'rxjs/add/operator/reduce';
   template: `
   <div class="container">
     <h1>od-virtualscroll <a routerLink="/about">about &#187;</a></h1>
-    <od-virtual-scroll class="tiles-container" [vsData]="data$" [vsOptions]="options$">
+    <od-virtualscroll class="tiles-container" [vsData]="data$" [vsOptions]="options$">
       <ng-template let-item let-row="row" let-column="column">
         <div class="tile">
           <div class="tile-info">
@@ -76,7 +76,7 @@ import 'rxjs/add/operator/reduce';
           {{item}}
         </div>
       </ng-template>
-    </od-virtual-scroll>
+    </od-virtualscroll>
   </div>`
 })
 export class ScrollComponent {
