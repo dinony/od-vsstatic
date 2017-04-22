@@ -15,6 +15,13 @@
     "index-aot.html",
     "build.gen.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dinony/od-vsstatic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dinony/od-vsstatic/issues"
+  },
   "author": "Onur Dogangönül <onur.dogangoenuel@gmail.com>",
   "maintainers": [
     {
