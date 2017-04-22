@@ -12,7 +12,7 @@
     "od-virtualscroll"
   ],
   "files": [
-    "index-aot.html",
+    "index.html",
     "build.gen.js"
   ],
   "repository": {
