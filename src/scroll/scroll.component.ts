@@ -6,8 +6,6 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/range';
 import 'rxjs/add/operator/reduce';
 
-import {asap} from 'rxjs/scheduler/asap';
-
 @Component({
   selector: 'od-scroll',
   styleUrls: ['src/scroll/scroll.component.css'],
@@ -19,7 +17,7 @@ import {asap} from 'rxjs/scheduler/asap';
           <a routerLink="/about">about &#187;</a>
         </div>
         <div class="border-wrapper">
-          <od-virtualscroll [vsData]="data$" [vsOptions]="options$" [vsResize]="resize$">
+          <od-virtualscroll [vsData]="data$" [vsOptions]="options$">
             <ng-template let-item let-row="row" let-column="column">
               <div class="tile">
                 <div class="tile-info">
@@ -37,5 +35,4 @@ import {asap} from 'rxjs/scheduler/asap';
 export class ScrollComponent {
   data$: Observable<number[]> = Observable.range(0, 100000).reduce((acc, cur) => { acc.push(cur); return acc; }, []);
   options$ = Observable.of({itemWidth: 202, itemHeight: 202, numAdditionalRows: 1});
-  resize$ = Observable.of('resize', asap); // flexbox
 }
