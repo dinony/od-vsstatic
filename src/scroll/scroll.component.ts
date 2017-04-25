@@ -20,7 +20,7 @@ import 'rxjs/add/operator/reduce';
       display: flex;
       flex-direction: column;
       height: 96%;
-      width: 92%;
+      width: 70%;
     }
 
     .header {
