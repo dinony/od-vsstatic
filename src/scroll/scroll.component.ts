@@ -9,21 +9,48 @@ import 'rxjs/add/operator/reduce';
 @Component({
   selector: 'od-scroll',
   styles: [`
-    .container {
+    .outer-container {
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inner-container {
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      margin: 0 auto;
-      width: 80%;
+      height: 96%;
+      width: 92%;
     }
 
-    h1 {
+    .header {
       color: pink;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
     }
 
-    .tiles-container {
+    .border-wrapper {
       border: 4px dashed pink;
-      height: 85%;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    a {
+      color: pink;
+      font-size: 14px;
+      font-style: normal;
+      text-decoration: none;
+    }
+
+    @media only screen and (max-width : 447px) {
+      .header {
+        display: none;
+      }
+
+      .border-wrapper {
+        height: 99%;
+      }
     }
 
     .tile {
@@ -49,37 +76,31 @@ import 'rxjs/add/operator/reduce';
     /deep/ .od-scroll-container {
       margin: 0 auto;
     }
-
-    h1 {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-
-    h1 a {
-      color: pink;
-      font-size: 14px;
-      font-style: normal;
-      text-decoration: none;
-    }
   `],
   template: `
-  <div class="container">
-    <h1>od-virtualscroll <a routerLink="/about">about &#187;</a></h1>
-    <od-virtualscroll class="tiles-container" [vsData]="data$" [vsOptions]="options$">
-      <ng-template let-item let-row="row" let-column="column">
-        <div class="tile">
-          <div class="tile-info">
-            <span>Row: {{row}}</span><br>
-            <span>Column: {{column}}</span>
-          </div>
-          {{item}}
+    <div class="outer-container">
+      <div class="inner-container">
+        <div class="header">
+          <h1>od-virtualscroll</h1>
+          <a routerLink="/about">about &#187;</a>
         </div>
-      </ng-template>
-    </od-virtualscroll>
-  </div>`
+        <div class="border-wrapper">
+          <od-virtualscroll [vsData]="data$" [vsOptions]="options$">
+            <ng-template let-item let-row="row" let-column="column">
+              <div class="tile">
+                <div class="tile-info">
+                  <span>Row: {{row}}</span><br>
+                  <span>Column: {{column}}</span>
+                </div>
+                {{item}}
+              </div>
+            </ng-template>
+          </od-virtualscroll>
+        <div>
+      </div>
+    </div>`
 })
 export class ScrollComponent {
-  data$: Observable<number[]> = Observable.range(0, 10000).reduce((acc, cur) => { acc.push(cur); return acc; }, []);
-  options$ = Observable.of({itemWidth: 204, itemHeight: 202, numAdditionalRows: 1});
+  data$: Observable<number[]> = Observable.range(0, 100000).reduce((acc, cur) => { acc.push(cur); return acc; }, []);
+  options$ = Observable.of({itemWidth: 202, itemHeight: 202, numAdditionalRows: 1});
 }
