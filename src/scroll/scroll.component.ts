@@ -17,7 +17,7 @@ import 'rxjs/add/operator/reduce';
           <a routerLink="/about">about &#187;</a>
         </div>
         <div class="border-wrapper">
-          <od-virtualscroll [vsData]="data$" [vsOptions]="options$">
+          <od-virtualscroll [vsData]="data$" [vsOptions]="options$" [vsResize]="resize$">
             <ng-template let-item let-row="row" let-column="column">
               <div class="tile">
                 <div class="tile-info">
@@ -35,4 +35,5 @@ import 'rxjs/add/operator/reduce';
 export class ScrollComponent {
   data$: Observable<number[]> = Observable.range(0, 100000).reduce((acc, cur) => { acc.push(cur); return acc; }, []);
   options$ = Observable.of({itemWidth: 202, itemHeight: 202, numAdditionalRows: 1});
+  resize$ = Observable.of(null); // flexbox
 }
