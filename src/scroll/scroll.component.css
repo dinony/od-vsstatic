@@ -1,0 +1,67 @@
+    .outer-container {
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inner-container {
+      display: flex;
+      flex-direction: column;
+      height: 96%;
+      width: 70%;
+    }
+
+    .header {
+      color: pink;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .border-wrapper {
+      border: 4px dashed pink;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    a {
+      color: pink;
+      font-size: 14px;
+      font-style: normal;
+      text-decoration: none;
+    }
+
+    @media only screen and (max-width : 447px) {
+      .header {
+        display: none;
+      }
+
+      .border-wrapper {
+        height: 99%;
+      }
+    }
+
+    .tile {
+      align-items: center;
+      border: 4px #b3eaff solid;
+      box-sizing: border-box;
+      display: inline-flex;
+      height: 200px;
+      justify-content: center;
+      margin-right: -2px;
+      position: relative;
+      width: 200px;
+    }
+
+    .tile-info {
+      font-size: 10px;
+      position: absolute;
+      right: 5px;
+      text-align: right;
+      top: 5px;
+    }
+
+    /deep/ .od-scroll-container {
+      margin: 0 auto;
+    }
