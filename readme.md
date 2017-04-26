@@ -1,6 +1,6 @@
 # od-vsstatic
 
-Static example with 10k cells. 
+Static example with 100k cells. 
 Ideal for performance analysis and GC testing.
 
 See [od-virtualscroll](https://github.com/dinony/od-virtualscroll) for details.
