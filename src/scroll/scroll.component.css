@@ -39,7 +39,7 @@ a {
   }
 }
 
-.tile {
+.cell {
   align-items: center;
   border: 4px #b3eaff solid;
   box-sizing: border-box;
@@ -51,7 +51,7 @@ a {
   width: 200px;
 }
 
-.tile-info {
+.cell-info {
   font-size: 10px;
   position: absolute;
   right: 5px;

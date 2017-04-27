@@ -19,8 +19,8 @@ import 'rxjs/add/operator/reduce';
         <div class="border-wrapper">
           <od-virtualscroll [vsData]="data$" [vsOptions]="options$">
             <ng-template let-item let-row="row" let-column="column">
-              <div class="tile">
-                <div class="tile-info">
+              <div class="cell">
+                <div class="cell-info">
                   <span>Row: {{row}}</span><br>
                   <span>Column: {{column}}</span>
                 </div>
