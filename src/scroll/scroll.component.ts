@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
 
-import {Observable} from 'rxjs/Observable';
-
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/range';
-import 'rxjs/add/operator/reduce';
+import {Observable, of, range} from 'rxjs';
+import {reduce} from 'rxjs/operators';
 
 @Component({
   selector: 'od-scroll',
@@ -33,6 +30,6 @@ import 'rxjs/add/operator/reduce';
     </div>`
 })
 export class ScrollComponent {
-  data$: Observable<number[]> = Observable.range(0, 100000).reduce((acc, cur) => { acc.push(cur); return acc; }, []);
-  options$ = Observable.of({itemWidth: 202, itemHeight: 202, numAdditionalRows: 1});
+  data$: Observable<number[]> = range(0, 100000).pipe(reduce((acc, cur) => { acc.push(cur); return acc; }, []));
+  options$ = of({itemWidth: 202, itemHeight: 202, numAdditionalRows: 1});
 }
